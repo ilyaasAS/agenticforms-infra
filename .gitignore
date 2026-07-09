@@ -1,0 +1,27 @@
+# --- Secrets & Variables d'environnement ---
+# On ignore les .env ici car ils sont spécifiques à chaque machine ou déploiement
+.env
+.env.local
+.env.*.local
+
+# --- Dossiers ignorés car gérés par leurs propres dépôts Git ---
+# Git ne verra jamais le code source ici, seulement les noms des dossiers
+backend/
+frontend/
+
+# --- IDE & Système ---
+# Pour éviter de polluer le repo avec des fichiers de configuration IntelliJ ou VS Code
+.DS_Store
+.idea/
+.vscode/
+Thumbs.db
+
+# --- Logs ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Archives ---
+*.zip
+*.tar.gz
