@@ -25,3 +25,5 @@ yarn-error.log*
 # --- Archives ---
 *.zip
 *.tar.gz
+# Dependencies (racine — ne pas versionner)
+node_modules/
