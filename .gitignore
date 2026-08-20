@@ -27,3 +27,4 @@ yarn-error.log*
 *.tar.gz
 # Dependencies (racine — ne pas versionner)
 node_modules/
+data/

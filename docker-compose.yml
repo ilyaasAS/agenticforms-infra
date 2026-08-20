@@ -77,12 +77,20 @@ services:
       MAIL_FROM: ${MAIL_FROM:-no-reply@agenticforms.com}
       RESET_PASSWORD_URL: ${RESET_PASSWORD_URL:-http://localhost:5173/reset-password}
       VERIFY_EMAIL_URL: ${VERIFY_EMAIL_URL:-http://localhost:5173/verify-email}
+      MEDIA_STORAGE_DIR: ${MEDIA_STORAGE_DIR:-/data/media}
       # Secrets (JWT_SECRET, DB_*, MONGO_*, OAuth, SPRING_MAIL_PASSWORD) :
       # uniquement via env_file (.env), jamais listés en clair dans ce fichier.
+    volumes:
+      - media_data:/data/media
     security_opt:
       - no-new-privileges:true
     cap_drop:
       - ALL
+    cap_add:
+      - CHOWN
+      - SETUID
+      - SETGID
+      - DAC_OVERRIDE
     healthcheck:
       test: ["CMD-SHELL", "curl -fsS http://localhost:8080/actuator/health || curl -fsS http://localhost:8080/ || exit 1"]
       interval: 15s
@@ -104,6 +112,8 @@ services:
       args:
         VITE_BACKEND_URL: ${VITE_BACKEND_URL:-http://localhost:8080}
         VITE_API_BASE_URL: ${VITE_API_BASE_URL:-/api}
+        VITE_UNSPLASH_ACCESS_KEY: ${VITE_UNSPLASH_ACCESS_KEY:-}
+        VITE_RECAPTCHA_SITE_KEY: ${VITE_RECAPTCHA_SITE_KEY:-}
     ports:
       - "127.0.0.1:${FRONTEND_PORT}:8080"
     depends_on:
@@ -123,3 +133,4 @@ services:
 volumes:
   db_data:
   mongo_data:
+  media_data:
