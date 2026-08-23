@@ -79,6 +79,8 @@ services:
       VERIFY_EMAIL_URL: ${VERIFY_EMAIL_URL:-http://localhost:5173/verify-email}
       MEDIA_STORAGE_DIR: ${MEDIA_STORAGE_DIR:-/data/media}
       ADMIN_BOOTSTRAP_EMAIL: ${ADMIN_BOOTSTRAP_EMAIL:-}
+      # reCAPTCHA v2 — secret serveur (clé site côté frontend via build arg)
+      RECAPTCHA_SECRET_KEY: ${RECAPTCHA_SECRET_KEY:-}
       # Secrets (JWT_SECRET, DB_*, MONGO_*, OAuth, SPRING_MAIL_PASSWORD) :
       # uniquement via env_file (.env), jamais listés en clair dans ce fichier.
     volumes:
