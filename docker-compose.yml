@@ -78,6 +78,7 @@ services:
       RESET_PASSWORD_URL: ${RESET_PASSWORD_URL:-http://localhost:5173/reset-password}
       VERIFY_EMAIL_URL: ${VERIFY_EMAIL_URL:-http://localhost:5173/verify-email}
       MEDIA_STORAGE_DIR: ${MEDIA_STORAGE_DIR:-/data/media}
+      ADMIN_BOOTSTRAP_EMAIL: ${ADMIN_BOOTSTRAP_EMAIL:-}
       # Secrets (JWT_SECRET, DB_*, MONGO_*, OAuth, SPRING_MAIL_PASSWORD) :
       # uniquement via env_file (.env), jamais listés en clair dans ce fichier.
     volumes:
