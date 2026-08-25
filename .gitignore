@@ -3,11 +3,19 @@
 .env
 .env.local
 .env.*.local
+.env.env.broken-placeholder
 
 # --- Dossiers ignorés car gérés par leurs propres dépôts Git ---
 # Git ne verra jamais le code source ici, seulement les noms des dossiers
 backend/
 frontend/
+
+# --- Livrables Nexa (hors GitHub — travail local / Word uniquement) ---
+livrables/
+
+# --- Fichiers temporaires / debug local ---
+.tmp-*/
+.cursor-shake-frames/
 
 # --- IDE & Système ---
 # Pour éviter de polluer le repo avec des fichiers de configuration IntelliJ ou VS Code
